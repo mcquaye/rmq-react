@@ -2,6 +2,7 @@ import { projects } from "@/data";
 import React from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
+import Image from "next/image";
 
 const RecentProjects = () => {
 	return (
@@ -9,7 +10,7 @@ const RecentProjects = () => {
 			<div className='mb-20'>
 				<h1 className='heading'>
 					A Small Selection of {""}
-					<span className='text-red-700'>Recent Projects</span>
+					<span className='text-red-600'>Recent Projects</span>
 				</h1>
 			</div>
 			<div className='flex flex-wrap items-center justify-center gap-x-24 gap-y-8 mt-10'>
@@ -19,7 +20,9 @@ const RecentProjects = () => {
 						className='sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] flex items-center justify-center sm:w-[570px] w-[80vw]'>
 						<PinContainer title={link} href={link}>
 							<div className='relative flex items-center justify-center sm:w-[570px] sm:h-[40vh] w-[80vw] overflow-hidden h-[30vh] mb-10'>
-								<img
+								<Image
+									width={1000}
+									height={1000}
 									src={img}
 									alt={title}
 									className='z-10 absolute bottom-0 bg-cover bg-center bg-no-repeat'
@@ -31,7 +34,7 @@ const RecentProjects = () => {
 							<p className='text-gray-400 lg:text-xl lg:font-normal font-light text-sm line-clamp-3'>
 								{des}
 							</p>
-							<p className='text-sm text-cyan-500 mt-3'>
+							<p className='text-sm text-gray-200 mt-3'>
 								<span className='text-gray-400'>Completed:</span> {date}
 							</p>
 							<div className='flex items-center justify-between mt-7 mb-3'>
@@ -43,13 +46,13 @@ const RecentProjects = () => {
 											style={{
 												transform: `translateX(-${5 * index + 2}px)`,
 											}}>
-											<img src={icon} alt='icon5' className='p-2' />
+											<Image width={40} height={40} src={icon} alt='icon5' className='p-2' />
 										</div>
 									))}
 								</div>
 								<div className='flex justify-center items-center'>
 									<p className='flex text-gray-400 text-xs'>View Live Site</p>
-									<FaLocationArrow className='ms-3' color='#06b6d4' />
+									<FaLocationArrow className='ms-3' color='#d5d8dc' />
 								</div>
 							</div>
 						</PinContainer>

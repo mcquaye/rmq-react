@@ -82,6 +82,10 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			keyframes: {
+				move: {
+					"0%": { transform: "translateX(-200px)" },
+					"100%": { transform: "translateX(200px)" },
+				},
 				scroll: {
 					to: {
 						transform: "translate(calc(-50% - 0.5rem))",
@@ -156,6 +160,7 @@ const config: Config = {
 				},
 			},
 			animation: {
+				move: "move 5s linear infinite",
 				"meteor-effect": "meteor 5s linear infinite",
 				accordionDown: "accordionDown 0.2s ease-out",
 				accordionUp: "accordionUp 0.2s ease-out",

@@ -12,7 +12,7 @@ const fontSans = Poppins({
 
 export const metadata: Metadata = {
 	title: "RMQ",
-	description: "Wholly Known As RMQ",
+	description: "Wholly Known As RMQ Creative - We do more than just brand your product.",
 };
 
 export default function RootLayout({

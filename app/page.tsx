@@ -1,23 +1,36 @@
+import Approach from "@/components/Approach";
 import Clients from "@/components/Clients";
+import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNav";
-import { navItems } from "@/data";
-import { FaHome } from "react-icons/fa";
+import { FloatingNav, navItems } from "@/components/ui/FloatingNav";
 
 export default function Home() {
 	return (
-		<main className='relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5'>
+		<main className='relative flex justify-center items-center flex-col overflow-hidden mx-auto bg-white inset-0 bg-[radial-gradient(#f0f3f4_1px,transparent_1px)] bg-[size:10px_10px]'>
 			<div className='max-w-7xl w-full'>
 				<FloatingNav navItems={navItems} />
 				<Hero />
 			</div>
-			<div className='max-w-7xl w-full'>
+			<div className='max-w-7xl w-full sm:px-10 px-5'>
 				<Grid />
 			</div>
 			<RecentProjects />
+
+			<div className='max-w-7xl w-full mt-20' id='testimonials'>
+				<h1 className='heading'>
+					A Few Words From <span className='text-red-600'>Satisfied Clients</span>
+				</h1>
+			</div>
+
 			<Clients />
+
+			<div className='max-w-7xl w-full'>
+				<Approach />
+				<Footer />
+			</div>
 		</main>
 	);
 }

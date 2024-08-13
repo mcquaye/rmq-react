@@ -1,11 +1,3 @@
-export const navItems = [
-	{ name: "Home", link: "/" },
-	{ name: "About", link: "#about" },
-	{ name: "Projects", link: "#projects" },
-	{ name: "Testimonials", link: "#testimonials" },
-	{ name: "Contact", link: "#contact" },
-];
-
 export const GridItems = [
 	{
 		id: 1,
@@ -31,8 +23,8 @@ export const GridItems = [
 	{
 		id: 3,
 		title: "My Tech Stack",
-		description: "Always Improving",
-		className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+		description: "",
+		className: "text-center lg:col-span-2 md:col-span-3 md:row-span-2",
 		imgClassName: "",
 		titleClassName: "justify-center",
 		img: "",
@@ -78,7 +70,7 @@ export const projects = [
 		des: "A fully custom digital marketing agency. No frameworks applied here. All graphics to code custom made.",
 		img: "/ronin.png",
 		iconLists: ["/bootstrap.svg", "/html5.svg", "/css3.svg", "/scss.svg", "/php.svg", "/js.svg"],
-		link: "https://roninafrica.com/",
+		link: "www.roninafrica.com/",
 		date: "07 November. 2016",
 	},
 	{
@@ -87,7 +79,7 @@ export const projects = [
 		des: "A charity organization based in ghana. Utilizes morden web development practices with PayStack.",
 		img: "/gtg.png",
 		iconLists: ["/angular.svg", "/bootstrap.svg", "/scss.svg", "/ts.svg"],
-		link: "https://gracefoundus.co/",
+		link: "www.gracefoundus.co/",
 		date: "17 Feb. 2017",
 	},
 	{
@@ -96,7 +88,7 @@ export const projects = [
 		des: "Digital showcase reel for a furniture manufacturing company, with a stunning photo gallery.",
 		img: "/profico.png",
 		iconLists: ["/laravel.svg", "/bootstrap.svg", "/html5.svg", "/scss.svg", "/js.svg"],
-		link: "https://profico.mcquaye.xyz/",
+		link: "www.profico.mcquaye.xyz",
 		date: "25 October. 2020",
 	},
 	{
@@ -105,7 +97,7 @@ export const projects = [
 		des: "A stuning custom wordpress e-commerce theme. Utilizing morden technologies.",
 		img: "/korlekour.png",
 		iconLists: ["/wordpress.svg", "/woo.svg", "/php.svg", "/bootstrap.svg", "/js.svg"],
-		link: "https://www.korlekour.com/",
+		link: "www.korlekour.com",
 		date: "03 March 2023",
 	},
 	{
@@ -114,7 +106,7 @@ export const projects = [
 		des: "A cutom shopify e-commerce web application. With stripe and paypal payments implemented.",
 		img: "/sankofa.png",
 		iconLists: ["/shopify.svg", "/js.svg", "/stripe.svg", "/paypal.svg"],
-		link: "https://sankofamarket.place/",
+		link: "www.sankofamarket.place",
 		date: "24 July 2023",
 	},
 	{
@@ -123,7 +115,7 @@ export const projects = [
 		des: "Custom holiday ticketing event and booking website. Utilizes morden web technologies to ensure fast reload.",
 		img: "/lf.png",
 		iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg"],
-		link: "https://lastfridays.mcquaye.xyz/",
+		link: "www.lastfridays.mcquaye.xyz",
 		date: "28 June 2024",
 	},
 ];
@@ -131,114 +123,125 @@ export const projects = [
 export const testimonials = [
 	{
 		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-		name: "Michael Johnson",
-		title: "Director of AlphaStream Technologies",
+			"Working with RMQ was a game-changer for my brand. His deep understanding of both design and development allows him to perfectly represent who we are as a brand. The attention to detail and seamless execution are impressive.",
+		name: "Priscilla A.",
+		title: "Kor.Le.Kour",
 	},
 	{
 		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-		name: "Michael Johnson",
-		title: "Director of AlphaStream Technologies",
+			"RMQ is a powerhouse of creativity and technical skill! His ability to seamlessly blend stunning design with flawless functionality is unmatched. From concept to execution, RMQ turned ideas into a digital masterpiece. Working with him is always an absolute pleasure.",
+		name: "Raed H.",
+		title: "Ronin Africa",
 	},
 	{
 		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-		name: "Michael Johnson",
-		title: "Director of AlphaStream Technologies",
+			"Collaborating with RMQ was an absolute pleasure. He brought a perfect balance of creativity and technical expertise to our project, resulting in a website that not only looks great but also performs flawlessly. We highly recommend RMQ for any web development needs!",
+		name: "Gina Fofana",
+		title: "Ayebea's Sankofa Market Place",
 	},
 	{
 		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-		name: "Michael Johnson",
-		title: "Director of AlphaStream Technologies",
+			"RMQ’s work on our website was outstanding. He took the time to understand our needs and delivered a site that is both innovative and functional. His expertise in full development and design made a huge difference for our projects.",
+		name: "Nana Yaw Agyare",
+		title: "Director of Artlife Matters",
 	},
 	{
 		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-		name: "Michael Johnson",
-		title: "Director of AlphaStream Technologies",
+			"Working with RMQ is a breeze. He delivered sleek, professional videos and photos for our parties. Always delivered on time. He exceeded our expectations!",
+		name: "Ximo",
+		title: "Tortulum",
 	},
 ];
 
 export const companies = [
 	{
 		id: 1,
-		name: "cloudinary",
-		img: "/cloud.svg",
-		nameImg: "/cloudName.svg",
+		name: "Ronin Africa",
+		img: "/ronin-logo.png",
 	},
 	{
 		id: 2,
-		name: "appwrite",
-		img: "/app.svg",
-		nameImg: "/appName.svg",
+		name: "Kor.Le.Kour",
+		img: "/korlekour-logo.png",
 	},
 	{
 		id: 3,
-		name: "HOSTINGER",
-		img: "/host.svg",
-		nameImg: "/hostName.svg",
+		name: "Sankofa Market Place",
+		img: "/sankofa.webp",
 	},
 	{
 		id: 4,
-		name: "stream",
-		img: "/s.svg",
-		nameImg: "/streamName.svg",
+		name: "Tortulum",
+		img: "/tortulum-black.png",
 	},
 	{
 		id: 5,
-		name: "docker.",
-		img: "/dock.svg",
-		nameImg: "/dockerName.svg",
+		name: "Artlife Matters",
+		img: "/artlife-logo.png",
+	},
+	{
+		id: 6,
+		name: "Your Logo",
+		img: "/logo.png",
 	},
 ];
 
 export const workExperience = [
 	{
 		id: 1,
-		title: "Frontend Engineer Intern",
+		title: "Full Stack Developer - Lab Me",
 		desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
 		className: "md:col-span-2",
 		thumbnail: "/exp1.svg",
 	},
 	{
 		id: 2,
-		title: "Mobile App Dev - JSM Tech",
+		title: "Full Stack Developer - Ronin Africa",
 		desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-		className: "md:col-span-2", // change to md:col-span-2
-		thumbnail: "/exp2.svg",
-	},
-	{
-		id: 3,
-		title: "Freelance App Dev Project",
-		desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-		className: "md:col-span-2", // change to md:col-span-2
-		thumbnail: "/exp3.svg",
-	},
-	{
-		id: 4,
-		title: "Lead Frontend Developer",
-		desc: "Developed and maintained user-facing features using modern frontend technologies.",
 		className: "md:col-span-2",
-		thumbnail: "/exp4.svg",
+		thumbnail: "/exp2.svg",
 	},
 ];
 
 export const socialMedia = [
 	{
 		id: 1,
+		link: "www.github.com/mcquaye/",
 		img: "/git.svg",
 	},
 	{
 		id: 2,
-		img: "/twit.svg",
-	},
-	{
-		id: 3,
+		link: "www.www.linkedin.com/in/mcquaye/",
 		img: "/link.svg",
 	},
 ];
 
 export const leftLists = ["WordPress", "React", "Typescript"];
 export const rightLists = ["Laravel", "Node Js", "Angular"];
+
+export const cardData = [
+	{
+		id: 1,
+		title: "Planning & Strategy",
+		order: "Phase 1",
+		description:
+			"Effective planning and strategy are crucial for outlining the project's goals and ensuring a clear roadmap for success.",
+		containerClassName: "bg-emerald-900",
+	},
+	{
+		id: 2,
+		title: "Design & Development",
+		order: "Phase 2",
+		description:
+			"Innovative design paired with robust development ensures that the project not only looks great but also performs seamlessly.",
+		containerClassName: "bg-black",
+	},
+	{
+		id: 3,
+		title: "Testing & Launch",
+		order: "Phase 3",
+		description:
+			"Effective testing and a smooth launch process are essential for delivering a reliable product and achieving successful market entry.",
+		containerClassName: "bg-sky-600",
+	},
+];
