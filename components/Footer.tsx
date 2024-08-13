@@ -7,7 +7,7 @@ const year = date.getFullYear();
 
 const Footer = () => {
 	return (
-		<footer className='w-full pt-20 pb-10' id='contact'>
+		<footer className='pt-20 pb-10' id='contact'>
 			<div className='flex flex-col items-center z-20'>
 				<h1 className='heading lg:max-w-[35vw] m-7'>
 					Let&apos;s Create <span className='text-red-600'>Amazing</span> Things Together.
@@ -19,14 +19,14 @@ const Footer = () => {
 					<ShimmerButton title="Let's get in touch" icon={<FaLocationArrow />} position='right' />
 				</a>
 			</div>
-			<div className='flex flex-col md:flex-row justify-between items-center mt-36 px-4'>
+			<div className='flex flex-col md:flex-row justify-between items-center mt-36 px-4 w-full'>
 				<div className='flex items-center'>
-					<p className='text-sm md:text-base font-light'>
+					<p className='text-sm md:text-base font-normal'>
 						Copyright &copy; {new Date().getFullYear()} RMQ
 					</p>
 				</div>
 
-				<div className='flex items-center space-x-6'>
+				<div className='flex items-center mt-10 md:mt-0 space-x-6'>
 					<a
 						href='https://www.github.com/mcquaye/'
 						target='_blank'
