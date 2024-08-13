@@ -203,22 +203,6 @@ export const workExperience = [
 	},
 ];
 
-export const socialMedia = [
-	{
-		id: 1,
-		link: "www.github.com/mcquaye/",
-		img: "/git.svg",
-	},
-	{
-		id: 2,
-		link: "www.www.linkedin.com/in/mcquaye/",
-		img: "/link.svg",
-	},
-];
-
-export const leftLists = ["WordPress", "React", "Typescript"];
-export const rightLists = ["Laravel", "Node Js", "Angular"];
-
 export const cardData = [
 	{
 		id: 1,

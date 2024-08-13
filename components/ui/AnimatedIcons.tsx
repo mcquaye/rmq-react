@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { IoLogoAngular, IoLogoReact } from "react-icons/io5";
 import { SiLaravel, SiPhp } from "react-icons/si";
-import { FaShopify } from "react-icons/fa6";
+import { BiLogoTypescript } from "react-icons/bi";
 
 export const Skeleton = () => {
 	const scale = [1, 1.1, 1];
@@ -64,7 +64,7 @@ export const Skeleton = () => {
 		<div className='p-8 overflow-hidden h-full relative flex items-center justify-center'>
 			<div className='flex flex-row flex-shrink-0 justify-center items-center gap-2'>
 				<Container className='h-11 w-11 circle-1'>
-					<FaShopify className='h-6 w-6' color='#96bf48' />
+					<BiLogoTypescript className='h-6 w-6' color='#3178c6' />
 				</Container>
 				<Container className='h-14 w-14 circle-2'>
 					<SiPhp className='h-8 w-8' color='#8892be' />
