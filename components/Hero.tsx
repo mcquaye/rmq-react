@@ -7,7 +7,7 @@ const words = `Turning Ideas into Seamless Digital User-Centric Experiences`;
 
 const Hero = () => {
 	return (
-		<div className='pb-20 pt-36'>
+		<div className='py-20'>
 			<div className='h-screen w-full bg-gradient-to-b from-black to-[#050a18] absolute top-0 left-0 flex items-center justify-center'>
 				<Meteors number={5} />
 			</div>

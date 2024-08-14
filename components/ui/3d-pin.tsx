@@ -40,12 +40,12 @@ export const PinContainer = ({
 					perspective: "1000px",
 					transform: "rotateX(70deg) translateZ(0deg)",
 				}}
-				className='absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2'>
+				className='absolute left-1/2 top-1/2 ml-[0.09375rem] mt-0 -translate-x-1/2 -translate-y-1/2'>
 				<div
 					style={{
 						transform: transform,
 					}}
-					className='absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-[#050a18] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden mb-5'>
+					className='group absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-xl bg-[#fcfcfc] shadow-sm shadow-slate-400/[0.1] border border-gray-500/[0.1] group-hover/pin:border-gray-500/[0.1] transition-all duration-1000 overflow-hidden mb-5'>
 					<div className={cn(" relative z-50 ", className)}>{children}</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Clients = () => {
 	return (
-		<div className='pb-20'>
+		<div className=''>
 			<div className='flex flex-col lg:mt-10'>
 				<InfiniteMovingCards items={testimonials} direction='right' speed='slow' />
 			</div>

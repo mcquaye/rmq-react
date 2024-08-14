@@ -13,6 +13,7 @@ const config: Config = {
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 		"./data/**/*.{ts,tsx}",
+		"./lib/**/*.{ts,tsx}",
 	],
 	theme: {
 		container: {

@@ -8,23 +8,19 @@ import { cardData } from "@/data";
 
 const Approach = () => {
 	return (
-		<section className='w-full py-20'>
-			<div className='p-10 text-center' id='experience'>
-				<h1 className='text-4xl font-bold'>
-					My Process Dev. <span className='text-red-600'>Is Practical</span>
-				</h1>
+		<section className='w-full py-20' id='experience'>
+			<div className='text-center'>
+				<h3 className='text-3xl font-extrabold'>
+					My Process Dev. <span className='text-cyan-400'>Is Practical</span>
+				</h3>
 			</div>
 			<div className='my-10 flex flex-col lg:flex-row items-center justify-center w-full gap-4 p-10 sm:p-0'>
 				{cardData.map(({ id, title, order, description }) => (
-					<Card
-						key={id}
-						title={title}
-						icon={<AceternityIcon order={order} />}
-						description={description}>
+					<Card key={id} title={title} icon={<BigText order={order} />} description={description}>
 						<CanvasRevealEffect
 							animationSpeed={3}
 							containerClassName='bg-[#050a18]'
-							colors={[[125, 211, 252]]}
+							colors={[[125, 211, 252, 0.4]]}
 						/>
 					</Card>
 				))}
@@ -91,12 +87,12 @@ const Card = ({
 		</div>
 	);
 };
-const AceternityIcon = ({ order }: { order: string }) => {
+const BigText = ({ order }: { order: string }) => {
 	return (
 		<div>
-			<button className='relative text-lg px-10 py-4 border border-black bg-transparent text-white transition duration-200 group'>
-				<div className='absolute -bottom-2 -right-2 h-full w-full bg-red-600 -z-10 transition-all duration-200 group-hover:bottom-0 group-hover:right-0' />
-				<span className='relative'>{order}</span>
+			<button className='relative text-lg px-10 py-4 border border-black bg-transparent text-white transition duration-200 group shadow-sm'>
+				<div className='absolute -bottom-2 -right-2 h-full w-full bg-cyan-400 -z-10 transition-all duration-200 group-hover:bottom-0 group-hover:right-0' />
+				<span className='relative font-bold'>{order}</span>
 			</button>
 		</div>
 	);

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
-
+import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const fontSans = Poppins({
 	subsets: ["latin"],
@@ -25,6 +25,8 @@ export default function RootLayout({
 			<body className={cn("min-h-screen font-sans antialiased", `${fontSans.variable}`)}>
 				{children}
 			</body>
+			<GoogleTagManager gtmId='GT-5M88LLHB' />
+			<GoogleAnalytics gaId='G-QY1SLK8YKG' />
 		</html>
 	);
 }
