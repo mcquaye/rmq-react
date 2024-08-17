@@ -1,6 +1,7 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import ShimmerButton from "@/components/ui/ShimmerButton";
 import Image from "next/image";
+import { SiPeerlist } from "react-icons/si";
 
 const date = new Date();
 const year = date.getFullYear();
@@ -28,15 +29,22 @@ const Footer = () => {
 						href='https://www.github.com/mcquaye/'
 						target='_blank'
 						rel='noopener noreferrer'
-						className='w-10 h-10 flex items-center justify-center bg-cyan-400 rounded-lg border border-black-300 backdrop-filter backdrop-blur-lg saturate-180 hover:bg-black'>
+						className='w-10 h-10 flex items-center justify-center bg-cyan-400 rounded-lg border border-black-300 backdrop-filter backdrop-blur-lg saturate-180 hover:bg-gray-500'>
 						<Image src='/git.svg' alt='social media icon' width={20} height={20} />
 					</a>
 					<a
 						href='https://www.linkedin.com/in/mcquaye/'
 						target='_blank'
 						rel='noopener noreferrer'
-						className='w-10 h-10 flex items-center justify-center bg-cyan-400 rounded-lg border border-black-300 backdrop-filter backdrop-blur-lg saturate-180 hover:bg-black'>
+						className='w-10 h-10 flex items-center justify-center bg-cyan-400 rounded-lg border border-black-300 backdrop-filter backdrop-blur-lg saturate-180 hover:bg-blue-500'>
 						<Image src='/link.svg' alt='social media icon' width={20} height={20} />
+					</a>
+					<a
+						href='https://peerlist.io/rmqgh'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='w-10 h-10 flex items-center justify-center bg-cyan-400 rounded-lg border border-black-300 backdrop-filter text-white backdrop-blur-lg saturate-180 hover:bg-green-800'>
+						<SiPeerlist size={20} />
 					</a>
 				</div>
 			</div>
