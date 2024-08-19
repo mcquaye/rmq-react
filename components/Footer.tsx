@@ -4,9 +4,8 @@ import Image from "next/image";
 import { SiPeerlist } from "react-icons/si";
 
 const date = new Date();
-const year = date.getFullYear();
 
-const Footer = () => {
+function Footer() {
 	return (
 		<footer className='pt-20 pb-10' id='contact'>
 			<div className='flex flex-col items-center z-20 p-5'>
@@ -50,6 +49,6 @@ const Footer = () => {
 			</div>
 		</footer>
 	);
-};
+}
 
 export default Footer;

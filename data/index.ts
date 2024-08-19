@@ -1,8 +1,7 @@
 export const GridItems = [
 	{
 		id: 1,
-		title:
-			"My strategy involves putting the pieces in place so that everything fits together just right.",
+		title: "",
 		description: "",
 		className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[50vh]",
 		imgClassName: "w-full h-full",
@@ -32,7 +31,8 @@ export const GridItems = [
 	},
 	{
 		id: 4,
-		title: "I thrive on challenges—coding complex solutions or conquering new trails.",
+		title:
+			"My passion for technology drives me to develop web solutions that are as aesthetically pleasing as they are efficient.",
 		description: "",
 		className: "lg:col-span-2 md:col-span-3 md:row-span-1",
 		imgClassName: "",
@@ -189,17 +189,21 @@ export const companies = [
 export const workExperience = [
 	{
 		id: 1,
-		title: "Full Stack Developer - Lab Me",
-		desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-		className: "md:col-span-2",
-		thumbnail: "/exp1.svg",
+		title: "Lab Me Analytics",
+		location: "USA - Remote",
+		position: "Web Developer, 2022 - Present - Remote",
+		desc: "Collaborating with designers to align visuals with functionality. Maintaining and troubleshooting websites while monitoring and improving performance metrics.",
+		url: "https://labme.ai/",
+		iconLists: ["/shopify.svg", "/php.svg", "/js.svg", "/wordpress.svg"],
 	},
 	{
 		id: 2,
-		title: "Full Stack Developer - Ronin Africa",
-		desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-		className: "md:col-span-2",
-		thumbnail: "/exp2.svg",
+		title: "Ronin Africa",
+		location: "Accra, Ghana",
+		position: "Full Stack Web Developer, 2016 - Present",
+		desc: "Develop and maintain software with various languages, collaborate on scalable solutions, conduct system analysis and documentation.",
+		url: "https://roninafrica.com/",
+		iconLists: ["/re.svg", "/nextjs-fill.svg", "/laravel.svg", "/php.svg"],
 	},
 ];
 

@@ -17,17 +17,14 @@ export default function Home() {
 			<div className='max-w-7xl sm:px-10 px-5 w-full'>
 				<Grid />
 			</div>
-
 			<RecentProjects />
-
 			<div className='max-w-7xl mt-10 w-full' id='testimonials'>
 				<h3 className='text-3xl text-center font-extrabold'>
 					A Few Words From <span className='text-cyan-400'>Satisfied Clients</span>
 				</h3>
 			</div>
-
 			<Clients />
-
+			<Experience />
 			<div className='max-w-7xl w-full'>
 				<Approach />
 			</div>

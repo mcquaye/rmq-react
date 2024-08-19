@@ -8,6 +8,9 @@ const nextConfig = {
 	},
 	images: {
 		unoptimized: true,
+		domains: [
+			"api.microlink.io", // Microlink Image Preview
+		],
 	},
 };
 

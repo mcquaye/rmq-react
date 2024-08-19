@@ -3,53 +3,56 @@
 import React, { useState } from "react";
 import ShimmerButton from "./ui/ShimmerButton";
 import { FaFileDownload } from "react-icons/fa";
+import { LinkPreview } from "./ui/LinkPreview";
+import Image from "next/image";
+import { workExperience } from "@/data";
 
 const Experience = () => {
-	const [email, setEmail] = useState("");
-
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		try {
-			const response = await fetch("http://localhost:5000/send-resume", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ email }),
-			});
-
-			if (response.ok) {
-				alert("Resume sent successfully!");
-			} else {
-				alert("Failed to send resume.");
-			}
-		} catch (error: any) {
-			alert("An error occurred: " + error.message);
-		}
-	};
-
 	return (
-		<div className='relative flex flex-col items-center justify-center w-full h-96 overflow-hidden'>
-			<div className='absolute inset-0 z-10 pointer-events-none bg-[mask-image:radial-gradient(transparent,white)]'></div>
-
-			<div className='relative z-20 text-center p-10 flex flex-col items-center'>
-				<h1 className='text-4xl font-bold'>
-					My <span className='text-red-600'>Work Experience</span>
+		<div className='relative flex flex-col items-center justify-center max-w-7xl w-full h-full overflow-hidden'>
+			<div className='relative z-20 p-10 flex flex-col items-center'>
+				<h1 className='text-4xl font-bold text-center '>
+					My <span className='text-cyan-400'>Work Experience</span>
 				</h1>
-				<p className='text-lg text-gray-500 py-5'>
-					Enter your email address to get my full work experience.
-				</p>
-				<form onSubmit={handleSubmit} className='w-full max-w-md'>
-					<input
-						type='email'
-						placeholder='Enter your email address'
-						className='w-full p-3 border border-gray-300 rounded'
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-					<ShimmerButton title='Download Resume' icon={<FaFileDownload />} position='right' />
-				</form>
+
+				<div className='grid grid-cols-2 gap-16 my-10'>
+					{workExperience.map((experience, idx) => (
+						<div
+							key={idx}
+							className='group bg-gray-100 shadow-sm group-hover:shadow-lg transition-all duration-200 hover:bg-[#050a18] p-6 rounded-lg overflow-hidden'>
+							<p className='text-left relative z-20 mt-2'>
+								<LinkPreview url={experience.url}>
+									<p className='group-hover:text-white text-cyan-700 text-2xl font-bold'>
+										{" "}
+										{experience.title}
+									</p>
+									<p className='text-sm group-hover:text-gray-300'>{experience.location}</p>
+									<p className='group-hover:text-cyan-400'>{experience.position}</p>
+								</LinkPreview>
+							</p>
+							<hr className='mt-4 border-gray-500 group-hover:border-cyan-400' />
+							<p className='mt-4 relative z-20 text-m group-hover:text-white'>{experience.desc}</p>
+							<div className='flex items-center'>
+								{experience.iconLists?.map((icon, index) => (
+									<div
+										key={index}
+										className='border mt-5 border-slate-400/[.2] rounded-full bg-white group-hover:bg-gray-700 lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center'
+										style={{
+											transform: `translateX(-${5 * index + 2}px)`,
+										}}>
+										<Image width={40} height={40} src={icon} alt={`icon${index}`} className='p-2' />
+									</div>
+								))}
+							</div>
+						</div>
+					))}
+				</div>
+
+				<a
+					href='https://drive.google.com/file/d/1mugTLma-fzp-eIEveH5qkhtwP-orozVs/view'
+					target='_blank'>
+					<ShimmerButton title='Download Full Resume' icon={<FaFileDownload />} position='right' />
+				</a>
 			</div>
 		</div>
 	);
