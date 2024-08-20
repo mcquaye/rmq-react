@@ -2,6 +2,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import ShimmerButton from "@/components/ui/ShimmerButton";
 import Image from "next/image";
 import { SiPeerlist } from "react-icons/si";
+import WhiteButton from "./ui/WhiteButton";
 
 const date = new Date();
 
@@ -9,11 +10,11 @@ function Footer() {
 	return (
 		<footer className='pt-20 pb-10' id='contact'>
 			<div className='flex flex-col items-center z-20 p-5'>
-				<h1 className='heading lg:max-w-[35vw] mb-5'>
+				<h3 className='heading lg:max-w-[35vw] mb-10'>
 					Let&apos;s Create <span className='text-cyan-400'>Amazing</span> Things Together.
-				</h1>
+				</h3>
 				<a href='mailto:mcquaye@outlook.com'>
-					<ShimmerButton title="Let's get in touch" icon={<FaLocationArrow />} position='right' />
+					<WhiteButton title="Let's get in touch " icon={<FaLocationArrow />} position='right' />
 				</a>
 			</div>
 			<div className='flex flex-col md:flex-row justify-between items-center mt-36 px-4 w-full'>

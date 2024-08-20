@@ -6,30 +6,28 @@ import { FaFileDownload } from "react-icons/fa";
 import { LinkPreview } from "./ui/LinkPreview";
 import Image from "next/image";
 import { workExperience } from "@/data";
+import WhiteButton from "./ui/WhiteButton";
 
 const Experience = () => {
 	return (
 		<div className='relative flex flex-col items-center justify-center max-w-7xl w-full h-full overflow-hidden'>
 			<div className='relative z-20 p-10 flex flex-col items-center'>
-				<h1 className='text-4xl font-bold text-center '>
+				<h3 className='text-3xl font-extrabold text-center '>
 					My <span className='text-cyan-400'>Work Experience</span>
-				</h1>
+				</h3>
 
-				<div className='grid grid-cols-2 gap-16 my-10'>
+				<div className='grid grid-cols-1 sm:grid-cols-2 gap-16 my-10'>
 					{workExperience.map((experience, idx) => (
 						<div
 							key={idx}
 							className='group bg-gray-100 shadow-sm group-hover:shadow-lg transition-all duration-200 hover:bg-[#050a18] p-6 rounded-lg overflow-hidden'>
-							<p className='text-left relative z-20 mt-2'>
-								<LinkPreview url={experience.url}>
-									<p className='group-hover:text-white text-cyan-700 text-2xl font-bold'>
-										{" "}
-										{experience.title}
-									</p>
-									<p className='text-sm group-hover:text-gray-300'>{experience.location}</p>
-									<p className='group-hover:text-cyan-400'>{experience.position}</p>
-								</LinkPreview>
-							</p>
+							<LinkPreview url={experience.url}>
+								<p className='group-hover:text-white text-cyan-700 text-2xl font-bold'>
+									{experience.title}
+								</p>
+								<p className='text-sm group-hover:text-gray-300'>{experience.location}</p>
+								<p className='group-hover:text-cyan-400'>{experience.position}</p>
+							</LinkPreview>
 							<hr className='mt-4 border-gray-500 group-hover:border-cyan-400' />
 							<p className='mt-4 relative z-20 text-m group-hover:text-white'>{experience.desc}</p>
 							<div className='flex items-center'>
@@ -49,9 +47,10 @@ const Experience = () => {
 				</div>
 
 				<a
+					className='mt-5'
 					href='https://drive.google.com/file/d/1mugTLma-fzp-eIEveH5qkhtwP-orozVs/view'
 					target='_blank'>
-					<ShimmerButton title='Download Full Resume' icon={<FaFileDownload />} position='right' />
+					<WhiteButton title='Download Full Resume' icon={<FaFileDownload />} position='right' />
 				</a>
 			</div>
 		</div>
