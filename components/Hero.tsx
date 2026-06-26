@@ -3,30 +3,45 @@ import ShimmerButton from "./ui/ShimmerButton";
 import { FaRegEye } from "react-icons/fa";
 import { Meteors } from "./ui/Meteors";
 
-const words = `Turning Ideas into Seamless Digital User-Centric Experiences`;
+const words = `API Architect | SAAS Developer | Full-Stack Engineer`;
 
 const Hero = () => {
 	return (
-		<div className='py-20'>
-			<div className='h-screen w-full bg-gradient-to-b from-black to-[#050a18] absolute top-0 left-0 flex items-center justify-center'>
-				<Meteors number={5} />
-			</div>
+		<div className='relative w-full min-h-screen flex items-center justify-center overflow-hidden'>
+			{/* Background */}
+			<div className="absolute inset-0 bg-[url('/bg-2.jpg')] bg-cover bg-center" />
+			<div className='absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-[#050a18]/95' />
 
-			<div className='flex justify-center relative my-20 z-10'>
-				<div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
-					<h2 className='uppercase tracking-widest text-s text-center text-blue-100 max-w-80'>
-						Pixels, Code & Play
-					</h2>
-					<TextGenerateEffect
-						className='text-center text-[40px] md:text-4xl lg:text-5xl'
-						duration={2}
-						filter={false}
-						words={words}
-					/>
+			{/* Meteors effect */}
+			<Meteors number={8} />
+
+			{/* Content */}
+			<div className='relative z-10 flex flex-col items-center justify-center px-5 text-center max-w-3xl mx-auto'>
+				<p className='uppercase tracking-[0.3em] text-sm text-cyan-400/80 mb-6'>R. M. Q.</p>
+
+				<TextGenerateEffect
+					className='text-[36px] md:text-5xl lg:text-6xl font-bold text-white leading-tight'
+					duration={2}
+					filter={false}
+					words={words}
+				/>
+
+				<p className='mt-6 text-slate-400 text-sm md:text-base max-w-xl leading-relaxed'>
+					Full-stack engineer with 12+ years building scalable APIs, SaaS platforms, and enterprise
+					solutions across e-commerce, healthcare, and fintech.
+				</p>
+
+				<div className='mt-10 flex flex-wrap gap-4 justify-center'>
 					<a href='#projects'>
-						<ShimmerButton title='View Portfolio' icon={<FaRegEye />} position='right' />
+						<ShimmerButton title='View Work' icon={<FaRegEye />} position='right' />
 					</a>
 				</div>
+
+				{/* Tech stack — single line, text only */}
+				<p className='mt-16 text-xs text-slate-600 tracking-wider'>
+					PHP &middot; Laravel &middot; TypeScript &middot; React &middot; Next.js &middot;
+					PostgreSQL &middot; AWS
+				</p>
 			</div>
 		</div>
 	);

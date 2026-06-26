@@ -14,7 +14,6 @@ type LinkPreviewProps = {
 	width?: number;
 	height?: number;
 	quality?: number;
-	layout?: string;
 } & ({ isStatic: true; imageSrc: string } | { isStatic?: false; imageSrc?: never });
 
 export const LinkPreview = ({
@@ -24,7 +23,6 @@ export const LinkPreview = ({
 	width = 200,
 	height = 125,
 	quality = 50,
-	layout = "fixed",
 	isStatic = false,
 	imageSrc = "",
 }: LinkPreviewProps) => {
@@ -47,7 +45,6 @@ export const LinkPreview = ({
 	}
 
 	const [isOpen, setOpen] = React.useState(false);
-
 	const [isMounted, setIsMounted] = React.useState(false);
 
 	React.useEffect(() => {
@@ -56,38 +53,32 @@ export const LinkPreview = ({
 
 	const springConfig = { stiffness: 100, damping: 15 };
 	const x = useMotionValue(0);
-
 	const translateX = useSpring(x, springConfig);
 
 	const handleMouseMove = (event: any) => {
 		const targetRect = event.target.getBoundingClientRect();
 		const eventOffsetX = event.clientX - targetRect.left;
-		const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
+		const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
 		x.set(offsetFromCenter);
 	};
 
 	return (
 		<>
-			{isMounted ? (
+			{isMounted && (
 				<div className='hidden'>
-					<Image
-						src={src}
-						width={width}
-						height={height}
-						quality={quality}
-						layout={layout}
-						priority={true}
-						alt='hidden image'
-					/>
+					<div className='relative w-[600px] h-[375px]'>
+						<Image
+							src={src}
+							alt='Preview'
+							fill
+							sizes='(max-width: 768px) 100vw, 600px'
+							style={{ objectFit: "cover" }}
+						/>
+					</div>
 				</div>
-			) : null}
+			)}
 
-			<HoverCardPrimitive.Root
-				openDelay={50}
-				closeDelay={100}
-				onOpenChange={(open) => {
-					setOpen(open);
-				}}>
+			<HoverCardPrimitive.Root openDelay={50} closeDelay={100} onOpenChange={setOpen}>
 				<HoverCardPrimitive.Trigger
 					onMouseMove={handleMouseMove}
 					className={cn("text-black dark:text-white", className)}
@@ -116,24 +107,23 @@ export const LinkPreview = ({
 								}}
 								exit={{ opacity: 0, y: 20, scale: 0.6 }}
 								className='shadow-xl rounded-xl'
-								style={{
-									x: translateX,
-								}}>
+								style={{ x: translateX }}>
 								<Link
 									href={url}
 									target='_blank'
 									className='block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800'
 									style={{ fontSize: 0 }}>
-									<Image
-										src={isStatic ? imageSrc : src}
-										width={width}
-										height={height}
-										quality={quality}
-										layout={layout}
-										priority={true}
-										className='rounded-lg'
-										alt='preview image'
-									/>
+									<div className='relative' style={{ width, height }}>
+										<Image
+											src={isStatic ? imageSrc : src}
+											alt='preview image'
+											fill
+											quality={quality}
+											priority
+											className='rounded-lg'
+											sizes={`${width}px`}
+										/>
+									</div>
 								</Link>
 							</motion.div>
 						)}

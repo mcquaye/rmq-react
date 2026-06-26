@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { HydrationDebugger } from "@/components/HydrationDebugger";
 
 const fontSans = Poppins({
 	subsets: ["latin"],
@@ -23,10 +24,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={cn("min-h-screen font-sans antialiased", `${fontSans.variable}`)}>
+				<HydrationDebugger />
 				{children}
+				<GoogleTagManager gtmId='GT-5M88LLHB' />
+				<GoogleAnalytics gaId='G-QY1SLK8YKG' />
 			</body>
-			<GoogleTagManager gtmId='GT-5M88LLHB' />
-			<GoogleAnalytics gaId='G-QY1SLK8YKG' />
 		</html>
 	);
 }

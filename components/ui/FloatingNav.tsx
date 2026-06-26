@@ -1,40 +1,21 @@
 "use client";
+
 import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { TiHome } from "react-icons/ti";
-import { FaUserCircle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { IoGridSharp } from "react-icons/io5";
-import { BsChatQuote } from "react-icons/bs";
+import { MdChat } from "react-icons/md";
 import { BiMailSend } from "react-icons/bi";
 
 export const navItems = [
-	{
-		name: "Home",
-		link: "/",
-		icon: <TiHome className='h-6 w-6 text-cyan-400' />,
-	},
-	{
-		name: "About",
-		link: "#about",
-		icon: <FaUserCircle className='h-6 w-6 text-cyan-400' />,
-	},
-	{
-		name: "Projects",
-		link: "#projects",
-		icon: <IoGridSharp className='h-6 w-6 text-cyan-400' />,
-	},
-	{
-		name: "Testimonials",
-		link: "#testimonials",
-		icon: <BsChatQuote className='h-6 w-6 text-cyan-400' />,
-	},
-	{
-		name: "Contact",
-		link: "#contact",
-		icon: <BiMailSend className='h-6 w-6 text-cyan-400' />,
-	},
+	{ name: "Home", link: "/", icon: <TiHome className='h-4 w-4 text-cyan-400' /> },
+	{ name: "Work", link: "#projects", icon: <IoGridSharp className='h-4 w-4 text-cyan-400' /> },
+	{ name: "Clients", link: "#testimonials", icon: <MdChat className='h-4 w-4 text-cyan-400' /> },
+	{ name: "GitHub", link: "#github", icon: <FaGithub className='h-4 w-4 text-cyan-400' /> },
+	{ name: "Contact", link: "#contact", icon: <BiMailSend className='h-4 w-4 text-cyan-400' /> },
 ];
 
 interface NavItem {
@@ -71,18 +52,18 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
 				animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
 				transition={{ duration: 0.2 }}
 				className={cn(
-					"flex max-w-fit fixed top-10 inset-x-0 mx-auto border rounded-xl bg-[#050a18] shadow-md z-[5000] px-10 pl-8 py-5 items-center justify-center space-x-4 border-white/[0.2]",
-					className
+					"flex max-w-fit fixed top-6 inset-x-0 mx-auto border rounded-full bg-[#050a18]/90 backdrop-blur-md shadow-lg z-[5000] px-6 py-3 items-center justify-center gap-1 border-white/[0.08]",
+					className,
 				)}>
 				{navItems.map((navItem, idx) => (
 					<Link
 						key={navItem.link} // Use navItem.link for unique keys
 						href={navItem.link}
 						className={cn(
-							"relative font-bold items-center flex space-x-1 text-gray-200 hover:text-cyan-400"
+							"relative font-medium items-center flex space-x-1 text-slate-400 hover:text-cyan-400 transition-colors px-2",
 						)}>
-						<span className='block sm:hidden gap-10'>{navItem.icon}</span>
-						<span className='hidden sm:block text-sm'>{navItem.name}</span>
+						<span className='block sm:hidden'>{navItem.icon}</span>
+						<span className='hidden sm:block text-xs tracking-wide'>{navItem.name}</span>
 					</Link>
 				))}
 			</motion.div>
