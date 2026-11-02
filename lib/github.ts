@@ -1,16 +1,11 @@
 const GITHUB_API = "https://api.github.com";
-const TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-
-function headers(): HeadersInit {
-	const h: HeadersInit = { Accept: "application/vnd.github+json" };
-	if (TOKEN) {
-		h.Authorization = `Bearer ${TOKEN}`;
-	}
-	return h;
-}
+// Served by public/api/github.php, which holds the token on the server
+const CONTRIBUTIONS_URL = "/api/github.php";
 
 async function fetchGitHub<T>(path: string): Promise<T> {
-	const res = await fetch(`${GITHUB_API}${path}`, { headers: headers() });
+	const res = await fetch(`${GITHUB_API}${path}`, {
+		headers: { Accept: "application/vnd.github+json" },
+	});
 	if (!res.ok) {
 		if (res.status === 403 && res.headers.get("x-ratelimit-remaining") === "0") {
 			throw new Error("GitHub API rate limit exceeded. Please try again later.");
@@ -97,47 +92,11 @@ export interface ContributionCalendar {
 	weeks: ContributionWeek[];
 }
 
-async function fetchGraphQL<T>(query: string): Promise<T> {
-	const res = await fetch("https://api.github.com/graphql", {
-		method: "POST",
-		headers: {
-			Authorization: TOKEN ? `Bearer ${TOKEN}` : "",
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({ query }),
-	});
-	if (!res.ok) {
-		throw new Error(`GitHub GraphQL error: ${res.status}`);
-	}
-	return res.json();
-}
-
-export async function getContributionCalendar(
-	username: string,
-): Promise<ContributionCalendar | null> {
-	if (!TOKEN) return null;
+export async function getContributionCalendar(): Promise<ContributionCalendar | null> {
 	try {
-		const query = `
-      query {
-        user(login: "${username}") {
-          contributionsCollection {
-            contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                  date
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
-		const data = await fetchGraphQL<{
-			data: { user: { contributionsCollection: { contributionCalendar: ContributionCalendar } } };
-		}>(query);
-		return data.data.user.contributionsCollection.contributionCalendar;
+		const res = await fetch(CONTRIBUTIONS_URL);
+		if (!res.ok) return null;
+		return await res.json();
 	} catch {
 		return null;
 	}

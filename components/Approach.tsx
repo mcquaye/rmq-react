@@ -8,7 +8,7 @@ import { cardData } from "@/data";
 
 const Approach = () => {
 	return (
-		<section className='w-full py-20' id='experience'>
+		<section className='w-full py-20'>
 			<div className='text-center'>
 				<h3 className='text-3xl font-extrabold'>
 					My Process Dev. <span className='text-cyan-400'>Is Practical</span>

@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## GitHub contribution graph
+
+The graph loads from `public/api/github.php`, which keeps the GitHub token on the server and caches the result for 30 minutes. The host must run PHP 8.1 or newer. Put the token in a file named `.github-token` in the folder above the website root, or set `GITHUB_TOKEN` on the server.
+
+`next dev` does not run PHP, so the graph shows as unavailable in local development unless the endpoint is served separately.
+
+## PeoplePerHour portfolio images
+
+`npm run portfolio:images` renders one image per project into `portfolio-images/dark` and `portfolio-images/light`, using Chrome on macOS. The projects and wording are listed in `scripts/portfolio-images.mjs`. PeoplePerHour bans links and contact details in these images, so check each one before uploading.

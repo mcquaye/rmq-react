@@ -6,7 +6,8 @@
     "dev": "next dev -p ${PORT:-3030}",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "portfolio:images": "node scripts/portfolio-images.mjs"
   },
   "dependencies": {
     "@eslint/config-array": "^0.19.1",

@@ -1,7 +1,6 @@
 "use client";
 
 import Clients from "@/components/Clients";
-import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import GitHubContributions from "@/components/GitHubContributions";
 import Hero from "@/components/Hero";
@@ -34,13 +33,6 @@ export default function Home() {
 			<section className='relative w-full py-24 border-t border-slate-800/50'>
 				<div className='max-w-6xl mx-auto px-5 sm:px-10'>
 					<GitHubContributions />
-				</div>
-			</section>
-
-			{/* Experience */}
-			<section className='relative w-full py-24 border-t border-slate-800/50'>
-				<div className='max-w-6xl mx-auto px-5 sm:px-10'>
-					<Experience />
 				</div>
 			</section>
 

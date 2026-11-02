@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { GitCommit, GitPullRequest, ExternalLink } from "lucide-react";
+import { CalendarDays, ExternalLink, FolderGit2, GitCommit } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import {
 	getContributionCalendar,
@@ -31,6 +31,9 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 const GITHUB_USERNAME = "mcquaye";
 
+// One 12px square plus the 2px gap between weeks
+const WEEK_WIDTH = 14;
+
 export default function GitHubContributions() {
 	const [calendar, setCalendar] = useState<{
 		totalContributions: number;
@@ -44,7 +47,7 @@ export default function GitHubContributions() {
 		async function fetchData() {
 			try {
 				const [calResult, evtsResult, profResult] = await Promise.allSettled([
-					getContributionCalendar(GITHUB_USERNAME),
+					getContributionCalendar(),
 					getUserEvents(GITHUB_USERNAME),
 					getUserProfile(GITHUB_USERNAME),
 				]);
@@ -60,9 +63,6 @@ export default function GitHubContributions() {
 	}, []);
 
 	const totalContributions = calendar?.totalContributions ?? events?.length ?? 0;
-	const pushCount = events?.filter((e) => e.type === "PushEvent").length ?? 0;
-	const prCount = events?.filter((e) => e.type === "PullRequestEvent").length ?? 0;
-	const hasEvents = events.length > 0;
 
 	// Build weeks from calendar (or from events as fallback)
 	let weeks: ContributionDay[][] = [];
@@ -89,6 +89,14 @@ export default function GitHubContributions() {
 			weeks.push(days.slice(i, i + 7));
 		}
 	}
+
+	const activeDays = weeks.flat().filter((day) => day.contributionCount > 0).length;
+
+	// On narrow screens the graph scrolls, so start on the newest weeks
+	const graphRef = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		if (graphRef.current) graphRef.current.scrollLeft = graphRef.current.scrollWidth;
+	}, [weeks.length]);
 
 	// Month labels
 	const monthLabels: { label: string; index: number; key: string }[] = [];
@@ -154,27 +162,25 @@ export default function GitHubContributions() {
 						label='contributions in the last year'
 						delay={0}
 					/>
-					{hasEvents && (
-						<>
-							<StatCard
-								icon={<GitCommit className='h-4 w-4 text-cyan-400' />}
-								value={pushCount.toString()}
-								label='recent pushes'
-								delay={0.1}
-							/>
-							<StatCard
-								icon={<GitPullRequest className='h-4 w-4 text-cyan-400' />}
-								value={prCount.toString()}
-								label='recent PRs'
-								delay={0.2}
-							/>
-						</>
+					<StatCard
+						icon={<CalendarDays className='h-4 w-4 text-cyan-400' />}
+						value={activeDays.toLocaleString()}
+						label='active days'
+						delay={0.1}
+					/>
+					{profile && (
+						<StatCard
+							icon={<FolderGit2 className='h-4 w-4 text-cyan-400' />}
+							value={profile.public_repos.toString()}
+							label='public repos'
+							delay={0.2}
+						/>
 					)}
 				</div>
 
 				{/* Contribution heatmap */}
 				{weeks.length > 0 && (
-					<div className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-6 overflow-x-auto'>
+					<div className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-6'>
 						<div className='flex items-center justify-between mb-5'>
 							<h3 className='text-sm font-medium text-white/80'>
 								{calendar
@@ -192,52 +198,54 @@ export default function GitHubContributions() {
 							</a>
 						</div>
 
-						{/* Month labels */}
-						<div className='flex mb-1 ml-8'>
-							<div className='flex w-full' style={{ gap: "2px" }}>
+						<div ref={graphRef} className='overflow-x-auto'>
+							{/* Month labels */}
+							<div
+								className='relative h-4 mb-1 ml-7'
+								style={{ width: `${weeks.length * WEEK_WIDTH}px` }}>
 								{monthLabels.map((m) => (
 									<div
 										key={m.key}
-										className='text-[10px] text-slate-500'
-										style={{ position: "relative", left: `${m.index * 14}px` }}>
+										className='absolute text-[10px] text-slate-500'
+										style={{ left: `${m.index * WEEK_WIDTH}px` }}>
 										{m.label}
 									</div>
 								))}
 							</div>
-						</div>
 
-						<div className='flex gap-0.5'>
-							{/* Day labels */}
-							<div className='flex flex-col gap-0.5 pr-1.5 pt-0'>
-								{["", "M", "", "W", "", "F", ""].map((label, i) => (
-									<div key={i} className='h-3 text-[9px] text-slate-600 leading-3 text-right w-5'>
-										{label}
-									</div>
-								))}
-							</div>
-
-							{/* Grid */}
 							<div className='flex gap-0.5'>
-								{weeks.map((week, wi) => (
-									<div key={wi} className='flex flex-col gap-0.5'>
-										{week.map((day, di) => (
-											<motion.div
-												key={`${wi}-${di}`}
-												initial={{ opacity: 0, scale: 0 }}
-												whileInView={{ opacity: 1, scale: 1 }}
-												viewport={{ once: true }}
-												transition={{
-													delay: Math.min((wi * 7 + di) * 0.002, 1.5),
-													duration: 0.15,
-												}}
-												className={`h-3 w-3 rounded-sm ${
-													LEVEL_COLORS[getLevel(day.contributionCount)]
-												}`}
-												title={`${day.date}: ${day.contributionCount} contributions`}
-											/>
-										))}
-									</div>
-								))}
+								{/* Day labels */}
+								<div className='flex flex-col gap-0.5 pr-1.5 pt-0'>
+									{["", "M", "", "W", "", "F", ""].map((label, i) => (
+										<div key={i} className='h-3 text-[9px] text-slate-600 leading-3 text-right w-5'>
+											{label}
+										</div>
+									))}
+								</div>
+
+								{/* Grid */}
+								<div className='flex gap-0.5'>
+									{weeks.map((week, wi) => (
+										<div key={wi} className='flex flex-col gap-0.5'>
+											{week.map((day, di) => (
+												<motion.div
+													key={`${wi}-${di}`}
+													initial={{ opacity: 0, scale: 0 }}
+													whileInView={{ opacity: 1, scale: 1 }}
+													viewport={{ once: true }}
+													transition={{
+														delay: Math.min((wi * 7 + di) * 0.002, 1.5),
+														duration: 0.15,
+													}}
+													className={`h-3 w-3 rounded-sm ${
+														LEVEL_COLORS[getLevel(day.contributionCount)]
+													}`}
+													title={`${day.date}: ${day.contributionCount} contributions`}
+												/>
+											))}
+										</div>
+									))}
+								</div>
 							</div>
 						</div>
 
@@ -254,15 +262,7 @@ export default function GitHubContributions() {
 
 				{weeks.length === 0 && (
 					<div className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-10 text-center'>
-						<p className='text-slate-400'>
-							Add a GitHub token to{" "}
-							<code className='text-xs bg-slate-800 px-1.5 py-0.5 rounded text-cyan-400'>.env</code>{" "}
-							as{" "}
-							<code className='text-xs bg-slate-800 px-1.5 py-0.5 rounded text-cyan-400'>
-								NEXT_PUBLIC_GITHUB_TOKEN
-							</code>{" "}
-							to see your contribution graph.
-						</p>
+						<p className='text-slate-400'>The contribution graph is unavailable right now.</p>
 					</div>
 				)}
 			</div>

@@ -32,7 +32,7 @@ export const GridItems = [
 	{
 		id: 4,
 		title:
-			"Senior Full-Stack Developer with 12+ years of experience building scalable APIs, SaaS platforms, and enterprise solutions. Passionate about using code to solve real-world problems with cost-effective, competitive solutions.",
+			"Senior Full-Stack Developer with 18+ years of experience building scalable APIs, SaaS platforms, and enterprise solutions. Passionate about using code to solve real-world problems with cost-effective, competitive solutions.",
 		description: "",
 		className: "lg:col-span-2 md:col-span-3 md:row-span-1",
 		imgClassName: "",
@@ -65,6 +65,15 @@ export const GridItems = [
 
 export const projects = [
 	{
+		id: 0,
+		title: "Adwuma — SaaS Project Management Platform",
+		des: "Multi-tenant work management SaaS with billing (Paystack), AI (Gemini + Claude), real-time WebSocket notifications (Reverb), invoicing, 6 report types, admin panel, React SPA + React Native mobile app. Built solo, end-to-end.",
+		img: "/adwuma.jpg",
+		iconLists: ["/laravel.svg", "/re.svg", "/postgres.svg", "/aws.svg"],
+		link: "https://adwuma.app",
+		date: "2025",
+	},
+	{
 		id: 1,
 		title: "Pet Sale & Adoption Management API",
 		des: "Comprehensive RESTful API for pet marketplace and adoption platform with AI-powered content moderation using AWS Rekognition, malicious user activity tracking, and secure authentication with RBAC.",
@@ -82,15 +91,15 @@ export const projects = [
 	// 	link: "#",
 	// 	date: "2024",
 	// },
-	// {
-	// 	id: 3,
-	// 	title: "The Koffies Hospitality",
-	// 	des: "Custom holiday ticketing event and booking website. Utilizes morden web technologies to ensure fast reload.",
-	// 	img: "/lf.jpg",
-	// 	iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/php.svg"],
-	// 	link: "https://www.thekoffies.com",
-	// 	date: "28 June 2024",
-	// },
+	{
+		id: 3,
+		title: "The Koffies Hospitality",
+		des: "Custom holiday ticketing event and booking website. Utilizes morden web technologies to ensure fast reload.",
+		img: "/lf.jpg",
+		iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/php.svg"],
+		link: "https://lastfridays.thekoffies.com/",
+		date: "28 June 2024",
+	},
 	{
 		id: 4,
 		title: "Professional Padel Association of Ghana",
@@ -145,15 +154,6 @@ export const projects = [
 		link: "https://electrolandgh.com/",
 		date: "01 January. 2020",
 	},
-	{
-		id: 10,
-		title: "GCX - Trading",
-		des: "A fully custom trading website for the Ghana Commodities Exchange. No frameworks applied here. All graphics to code custom made.",
-		img: "/ronin.jpg",
-		iconLists: ["/bootstrap.svg", "/html5.svg", "/css3.svg", "/scss.svg", "/php.svg", "/js.svg"],
-		link: "https://www.gcx.com.gh/",
-		date: "07 November. 2018",
-	},
 	// {
 	// 	id: 11,
 	// 	title: "Grace Found Us Charity",
@@ -170,15 +170,6 @@ export const projects = [
 	// 	link: "https://gracefoundus.co/",
 	// 	date: "19 May. 2017",
 	// },
-	{
-		id: 12,
-		title: "Ronin Africa",
-		des: "A fully custom digital marketing agency. No frameworks applied here. All graphics to code custom made.",
-		img: "/ronin.jpg",
-		iconLists: ["/bootstrap.svg", "/html5.svg", "/css3.svg", "/scss.svg", "/php.svg", "/js.svg"],
-		link: "https://www.roninafrica.com/",
-		date: "07 November. 2016",
-	},
 ];
 
 export const testimonials = [
@@ -262,45 +253,6 @@ export const companies = [
 	// 	name: "Your Logo",
 	// 	img: "/logo.png",
 	// },
-];
-
-export const workExperience = [
-	{
-		id: 1,
-		title: "Electroland Ghana Limited",
-		location: "Accra, Ghana - Remote",
-		position: "Full Stack Developer, September 2020 - Present",
-		desc: "Leading full-stack development for Ghana's largest electronics distributor with 700+ employees and 20+ showrooms. Architected e-commerce platform handling thousands of daily transactions, engineered customer loyalty system with ERP integration, and implemented USSD integration for mobile accessibility.",
-		url: "https://electrolandgh.com/",
-		iconLists: ["/laravel.svg", "/re.svg", "/postgres.svg", "/wordpress.svg", "/aws.svg"],
-	},
-	{
-		id: 2,
-		title: "Dripdok",
-		location: "Bali, Indonesia - Remote",
-		position: "Frontend Developer, January 2022 - March 2024",
-		desc: "Developed frontend features for regenerative medicine and IV therapy healthcare platform. Built responsive booking interfaces, implemented email marketing campaigns, and optimized performance across multiple platforms and browsers.",
-		url: "https://dripdok.com/",
-		iconLists: ["/wordpress.svg", "/js.svg", "/css3.svg", "/bootstrap.svg"],
-	},
-	{
-		id: 3,
-		title: "LabMe by HelloWellness",
-		location: "Delaware, USA - Remote",
-		position: "Frontend Developer, July 2021 - October 2023",
-		desc: "Built frontend solutions for at-home blood testing and lab interpretation platform leveraging AI. Developed marketing features, created email marketing assets, and implemented health data visualization components.",
-		url: "https://hellowellness.com/",
-		iconLists: ["/wordpress.svg", "/js.svg", "/css3.svg"],
-	},
-	{
-		id: 4,
-		title: "Ronin Africa",
-		location: "Accra, Ghana",
-		position: "Full Stack Developer, June 2017 -  June 2022",
-		desc: "Developed custom web solutions for full-service digital agency. Built scalable web applications and APIs for e-commerce, hospitality, and finance sectors. Created responsive interfaces and custom WordPress solutions.",
-		url: "https://roninafrica.com/",
-		iconLists: ["/laravel.svg", "/re.svg", "/nextjs-fill.svg", "/php.svg", "/wordpress.svg"],
-	},
 ];
 
 export const cardData = [

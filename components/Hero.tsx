@@ -3,7 +3,7 @@ import ShimmerButton from "./ui/ShimmerButton";
 import { FaRegEye } from "react-icons/fa";
 import { Meteors } from "./ui/Meteors";
 
-const words = `API Architect | SAAS Developer | Full-Stack Engineer`;
+const words = `Full-Stack Product Engineer`;
 
 const Hero = () => {
 	return (
@@ -27,8 +27,8 @@ const Hero = () => {
 				/>
 
 				<p className='mt-6 text-slate-400 text-sm md:text-base max-w-xl leading-relaxed'>
-					Full-stack engineer with 12+ years building scalable APIs, SaaS platforms, and enterprise
-					solutions across e-commerce, healthcare, and fintech.
+					I ship products, not just code. 18+ years helping businesses across fintech,
+					healthcare, and e-commerce turn ideas into tools people actually enjoy using.
 				</p>
 
 				<div className='mt-10 flex flex-wrap gap-4 justify-center'>
@@ -39,8 +39,8 @@ const Hero = () => {
 
 				{/* Tech stack — single line, text only */}
 				<p className='mt-16 text-xs text-slate-600 tracking-wider'>
-					PHP &middot; Laravel &middot; TypeScript &middot; React &middot; Next.js &middot;
-					PostgreSQL &middot; AWS
+					Laravel &middot; React &middot; React Native &middot; PostgreSQL &middot; AWS &middot;
+					AI/LLMs
 				</p>
 			</div>
 		</div>
