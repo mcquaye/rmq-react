@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p ${PORT:-3030}",
-    "build": "next build",
+    "build": "next build && node --env-file=.env.local scripts/github-token.mjs",
     "start": "next start",
     "lint": "next lint",
     "portfolio:images": "node scripts/portfolio-images.mjs"

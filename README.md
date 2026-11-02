@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## GitHub contribution graph
 
-The graph loads from `public/api/github.php`, which keeps the GitHub token on the server and caches the result for 30 minutes. The host must run PHP 8.1 or newer. Put the token in a file named `.github-token` in the folder above the website root, or set `GITHUB_TOKEN` on the server.
+The graph loads from `public/api/github.php`, which keeps the GitHub token on the server and caches the result for 30 minutes. The host must run PHP 8.1 or newer. Put the token in `.env.local` as `GITHUB_TOKEN=ghp_...` (no `NEXT_PUBLIC_` prefix, which would put it in the browser code). `npm run build` writes it into `out/api/github-token.php`, which `out/api/.htaccess` blocks from being opened, so it goes up with the rest of `out`.
 
 `next dev` does not run PHP, so the graph shows as unavailable in local development unless the endpoint is served separately.
 
