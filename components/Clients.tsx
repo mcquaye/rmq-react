@@ -14,13 +14,13 @@ const Clients = () => {
 				{companies.map((company) => (
 					<div
 						key={company.id}
-						className='flex justify-center items-center w-24 sm:w-28 md:w-32 h-16 bg-slate-900/50 rounded-lg border border-slate-800 p-3'>
+						className='flex justify-center items-center w-24 sm:w-28 md:w-32 h-16 bg-white dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800 p-3'>
 						<Image
 							width={100}
 							height={100}
 							src={company.img}
 							alt={company.name}
-							className='w-full h-auto object-contain invert brightness-0'
+							className='w-full h-auto object-contain dark:invert brightness-0'
 						/>
 					</div>
 				))}

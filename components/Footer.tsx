@@ -22,8 +22,8 @@ function Footer() {
 	return (
 		<footer className='pt-20 pb-10' id='contact'>
 			<div className='flex flex-col items-center z-20 p-5'>
-				<h3 className='text-2xl md:text-4xl font-bold text-center text-white mb-10'>
-					Let&apos;s Create <span className='text-cyan-400'>Amazing</span> Things Together.
+				<h3 className='text-2xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-10'>
+					Let&apos;s Create <span className='text-cyan-600 dark:text-cyan-400'>Amazing</span> Things Together.
 				</h3>
 				<div className='flex gap-4'>
 					<a href='mailto:mcquaye@outlook.com'>
@@ -36,7 +36,7 @@ function Footer() {
 			</div>
 			<div className='flex flex-col md:flex-row justify-between items-center mt-36 px-4 w-full'>
 				<div className='flex items-center'>
-					<p className='text-sm md:text-base font-normal text-slate-400'>
+					<p className='text-sm md:text-base font-normal text-slate-600 dark:text-slate-400'>
 						Copyright &copy; {new Date().getFullYear()} RMQ
 					</p>
 				</div>

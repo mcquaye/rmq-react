@@ -15,8 +15,8 @@ const RecentProjects = () => {
 	return (
 		<div id='projects'>
 			<div className='mb-10 text-center'>
-				<h3 className='text-2xl md:text-3xl font-bold text-white'>
-					Recent<span className='text-cyan-400'> Projects</span>
+				<h3 className='text-2xl md:text-3xl font-bold text-slate-900 dark:text-white'>
+					Recent<span className='text-cyan-600 dark:text-cyan-400'> Projects</span>
 				</h3>
 			</div>
 			<div className='max-w-5xl mx-auto'>
@@ -24,22 +24,22 @@ const RecentProjects = () => {
 
 				<div className='mt-16 px-2'>
 					<p className='mb-4 text-xs uppercase tracking-widest text-slate-500'>More work</p>
-					<ul className='divide-y divide-slate-800/70 border-y border-slate-800/70'>
+					<ul className='divide-y divide-slate-200 dark:divide-slate-800/70 border-y border-slate-200 dark:border-slate-800/70'>
 						{others.map(project => (
 							<li key={project.link}>
 								<a
 									href={project.link}
 									target='_blank'
 									rel='noopener noreferrer'
-									className='group flex items-center gap-4 sm:gap-6 py-5 px-2 sm:px-4 rounded-xl transition-colors hover:bg-slate-900/60'>
+									className='group flex items-center gap-4 sm:gap-6 py-5 px-2 sm:px-4 rounded-xl transition-colors hover:bg-slate-100 dark:hover:bg-slate-900/60'>
 									<span className='hidden sm:block w-12 shrink-0 text-sm tabular-nums text-slate-500'>
 										{project.date.match(/\d{4}/)?.[0]}
 									</span>
 									<div className='min-w-0 flex-1'>
-										<h4 className='font-semibold text-zinc-100 group-hover:text-cyan-400 transition-colors'>
+										<h4 className='font-semibold text-slate-900 dark:text-zinc-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors'>
 											{project.title}
 										</h4>
-										<p className='mt-1 text-sm text-zinc-400 line-clamp-2 sm:line-clamp-1'>{project.des}</p>
+										<p className='mt-1 text-sm text-slate-600 dark:text-zinc-400 line-clamp-2 sm:line-clamp-1'>{project.des}</p>
 									</div>
 									<div className='hidden md:flex items-center'>
 										{project.iconLists.map((icon, index) => (
@@ -51,7 +51,7 @@ const RecentProjects = () => {
 											</div>
 										))}
 									</div>
-									<ArrowUpRight className='h-5 w-5 shrink-0 text-slate-500 transition group-hover:text-cyan-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
+									<ArrowUpRight className='h-5 w-5 shrink-0 text-slate-500 transition group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
 								</a>
 							</li>
 						))}

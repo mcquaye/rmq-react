@@ -20,11 +20,11 @@ function getLevel(count: number): number {
 }
 
 const LEVEL_COLORS = [
-	"bg-slate-800/40",
-	"bg-cyan-950/70",
-	"bg-cyan-800/70",
-	"bg-cyan-500/80",
-	"bg-cyan-400",
+	"bg-slate-200 dark:bg-slate-800/40",
+	"bg-cyan-100 dark:bg-cyan-950/70",
+	"bg-cyan-300 dark:bg-cyan-800/70",
+	"bg-cyan-500 dark:bg-cyan-500/80",
+	"bg-cyan-700 dark:bg-cyan-400",
 ];
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -122,8 +122,8 @@ export default function GitHubContributions() {
 		return (
 			<>
 				<div className='mb-10 text-center'>
-					<h3 className='text-2xl md:text-3xl font-bold text-white'>
-						GitHub <span className='text-cyan-400'>Contributions</span>
+					<h3 className='text-2xl md:text-3xl font-bold text-slate-900 dark:text-white'>
+						GitHub <span className='text-cyan-600 dark:text-cyan-400'>Contributions</span>
 					</h3>
 				</div>
 				<div className='space-y-6'>
@@ -131,11 +131,11 @@ export default function GitHubContributions() {
 						{Array.from({ length: 3 }).map((_, i) => (
 							<div
 								key={i}
-								className='rounded-2xl h-24 bg-gradient-to-b from-black to-[#050a18] border border-slate-800 animate-pulse'
+								className='rounded-2xl h-24 bg-white dark:bg-gradient-to-b dark:from-black dark:to-[#050a18] border border-slate-200 dark:border-slate-800 animate-pulse'
 							/>
 						))}
 					</div>
-					<div className='rounded-2xl h-[180px] bg-gradient-to-b from-black to-[#050a18] border border-slate-800 animate-pulse' />
+					<div className='rounded-2xl h-[180px] bg-white dark:bg-gradient-to-b dark:from-black dark:to-[#050a18] border border-slate-200 dark:border-slate-800 animate-pulse' />
 				</div>
 			</>
 		);
@@ -148,8 +148,8 @@ export default function GitHubContributions() {
 			viewport={{ once: true }}
 			transition={{ duration: 0.5 }}>
 			<div className='mb-10 text-center'>
-				<h3 className='text-2xl md:text-3xl font-bold text-white'>
-					GitHub <span className='text-cyan-400'>Contributions</span>
+				<h3 className='text-2xl md:text-3xl font-bold text-slate-900 dark:text-white'>
+					GitHub <span className='text-cyan-600 dark:text-cyan-400'>Contributions</span>
 				</h3>
 			</div>
 
@@ -157,20 +157,20 @@ export default function GitHubContributions() {
 				{/* Stats cards */}
 				<div className='grid grid-cols-1 gap-4 sm:grid-cols-3'>
 					<StatCard
-						icon={<GitCommit className='h-4 w-4 text-cyan-400' />}
+						icon={<GitCommit className='h-4 w-4 text-cyan-600 dark:text-cyan-400' />}
 						value={totalContributions.toLocaleString()}
 						label='contributions in the last year'
 						delay={0}
 					/>
 					<StatCard
-						icon={<CalendarDays className='h-4 w-4 text-cyan-400' />}
+						icon={<CalendarDays className='h-4 w-4 text-cyan-600 dark:text-cyan-400' />}
 						value={activeDays.toLocaleString()}
 						label='active days'
 						delay={0.1}
 					/>
 					{profile && (
 						<StatCard
-							icon={<FolderGit2 className='h-4 w-4 text-cyan-400' />}
+							icon={<FolderGit2 className='h-4 w-4 text-cyan-600 dark:text-cyan-400' />}
 							value={profile.public_repos.toString()}
 							label='public repos'
 							delay={0.2}
@@ -180,9 +180,9 @@ export default function GitHubContributions() {
 
 				{/* Contribution heatmap */}
 				{weeks.length > 0 && (
-					<div className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-6'>
+					<div className='rounded-2xl bg-white dark:bg-gradient-to-b dark:from-black dark:to-[#050a18] border border-slate-200 dark:border-slate-800 p-6'>
 						<div className='flex items-center justify-between mb-5'>
-							<h3 className='text-sm font-medium text-white/80'>
+							<h3 className='text-sm font-medium text-slate-700 dark:text-white/80'>
 								{calendar
 									? `${totalContributions.toLocaleString()} contributions in the last year`
 									: "Recent activity (90 days)"}
@@ -191,7 +191,7 @@ export default function GitHubContributions() {
 								href={`https://github.com/${GITHUB_USERNAME}`}
 								target='_blank'
 								rel='noopener noreferrer'
-								className='flex items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors shrink-0'>
+								className='flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors shrink-0'>
 								<FaGithub className='h-3.5 w-3.5' />
 								View profile
 								<ExternalLink className='h-3 w-3' />
@@ -217,7 +217,7 @@ export default function GitHubContributions() {
 								{/* Day labels */}
 								<div className='flex flex-col gap-0.5 pr-1.5 pt-0'>
 									{["", "M", "", "W", "", "F", ""].map((label, i) => (
-										<div key={i} className='h-3 text-[9px] text-slate-600 leading-3 text-right w-5'>
+										<div key={i} className='h-3 text-[9px] text-slate-500 dark:text-slate-600 leading-3 text-right w-5'>
 											{label}
 										</div>
 									))}
@@ -261,8 +261,8 @@ export default function GitHubContributions() {
 				)}
 
 				{weeks.length === 0 && (
-					<div className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-10 text-center'>
-						<p className='text-slate-400'>The contribution graph is unavailable right now.</p>
+					<div className='rounded-2xl bg-white dark:bg-gradient-to-b dark:from-black dark:to-[#050a18] border border-slate-200 dark:border-slate-800 p-10 text-center'>
+						<p className='text-slate-600 dark:text-slate-400'>The contribution graph is unavailable right now.</p>
 					</div>
 				)}
 			</div>
@@ -287,10 +287,10 @@ function StatCard({
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true }}
 			transition={{ delay, duration: 0.4 }}
-			className='rounded-2xl bg-gradient-to-b from-black to-[#050a18] border border-slate-800 p-5 hover:border-cyan-400/30 transition-colors'>
+			className='rounded-2xl bg-white dark:bg-gradient-to-b dark:from-black dark:to-[#050a18] border border-slate-200 dark:border-slate-800 p-5 hover:border-cyan-600/30 dark:hover:border-cyan-400/30 transition-colors'>
 			<div className='mb-2'>{icon}</div>
-			<div className='text-3xl font-bold text-white'>{value}</div>
-			<div className='text-xs text-slate-400 mt-0.5'>{label}</div>
+			<div className='text-3xl font-bold text-slate-900 dark:text-white'>{value}</div>
+			<div className='text-xs text-slate-600 dark:text-slate-400 mt-0.5'>{label}</div>
 		</motion.div>
 	);
 }

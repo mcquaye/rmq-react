@@ -10,23 +10,23 @@ const Hero = () => {
 		<div className='relative w-full min-h-screen flex items-center justify-center overflow-hidden'>
 			{/* Background */}
 			<div className="absolute inset-0 bg-[url('/bg-2.jpg')] bg-cover bg-center" />
-			<div className='absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-[#050a18]/95' />
+			<div className='absolute inset-0 bg-gradient-to-b from-white/90 dark:from-black/90 via-white/85 dark:via-black/80 to-slate-50 dark:to-[#050a18]/95' />
 
 			{/* Meteors effect */}
 			<Meteors number={8} />
 
 			{/* Content */}
 			<div className='relative z-10 flex flex-col items-center justify-center px-5 text-center max-w-3xl mx-auto'>
-				<p className='uppercase tracking-[0.3em] text-sm text-cyan-400/80 mb-6'>R. M. Q.</p>
+				<p className='uppercase tracking-[0.3em] text-sm text-cyan-600 dark:text-cyan-400/80 mb-6'>R. M. Q.</p>
 
 				<TextGenerateEffect
-					className='text-[36px] md:text-5xl lg:text-6xl font-bold text-white leading-tight'
+					className='text-[36px] md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white leading-tight'
 					duration={2}
 					filter={false}
 					words={words}
 				/>
 
-				<p className='mt-6 text-slate-400 text-sm md:text-base max-w-xl leading-relaxed'>
+				<p className='mt-6 text-slate-600 dark:text-slate-400 text-sm md:text-base max-w-xl leading-relaxed'>
 					I ship products, not just code. 18+ years helping businesses across fintech,
 					healthcare, and e-commerce turn ideas into tools people actually enjoy using.
 				</p>
@@ -38,7 +38,7 @@ const Hero = () => {
 				</div>
 
 				{/* Tech stack — single line, text only */}
-				<p className='mt-16 text-xs text-slate-600 tracking-wider'>
+				<p className='mt-16 text-xs text-slate-500 dark:text-slate-600 tracking-wider'>
 					Laravel &middot; React &middot; React Native &middot; PostgreSQL &middot; AWS &middot;
 					AI/LLMs
 				</p>
